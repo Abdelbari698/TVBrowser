@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Launcher TV</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: #080c18;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    gap: 24px;
+  }
+  .icon { font-size: 80px; }
+  h1 { font-size: 32px; font-weight: 300; color: #4f8ef7; }
+  p  { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 500px; }
+  code {
+    background: rgba(79,142,247,0.15);
+    border: 1px solid rgba(79,142,247,0.3);
+    color: #7eb3ff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .steps {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px 32px;
+    text-align: left;
+    max-width: 520px;
+  }
+  .steps li { margin: 12px 0; font-size: 15px; color: rgba(255,255,255,0.75); }
+  .steps li span { color: #4f8ef7; font-weight: 600; margin-right: 8px; }
+</style>
+</head>
+<body>
+  <div class="icon">📁</div>
+  <h1>Fichier launcher introuvable</h1>
+  <p>L'app cherche automatiquement <code>launcher.html</code> sur ta clé USB.</p>
+  <div class="steps">
+    <ol>
+      <li><span>1.</span>Copie ton fichier HTML sur la clé USB</li>
+      <li><span>2.</span>Renomme-le en <code>launcher.html</code></li>
+      <li><span>3.</span>Branche la clé USB sur la TV</li>
+      <li><span>4.</span>Relance cette application</li>
+    </ol>
+  </div>
+</body>
+</html>

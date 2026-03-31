@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Guide - Mon Launcher TV</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0a0f1e; color: #e0e8ff; padding: 40px; max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 28px; color: #4f8ef7; margin-bottom: 8px; }
+  .subtitle { color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 40px; }
+  h2 { font-size: 17px; color: #7eb3ff; margin: 32px 0 14px; display: flex; align-items: center; gap: 10px; }
+  h2 .num { background: #4f8ef7; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; }
+  p { color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 10px; }
+  code, .path {
+    display: inline-block;
+    background: rgba(79,142,247,0.12);
+    border: 1px solid rgba(79,142,247,0.25);
+    color: #7eb3ff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: monospace;
+  }
+  .box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 14px 0;
+  }
+  .box li { color: rgba(255,255,255,0.7); line-height: 2; font-size: 14px; margin-left: 20px; }
+  .tip {
+    background: rgba(79,142,247,0.08);
+    border-left: 3px solid #4f8ef7;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+  }
+  .warn {
+    background: rgba(255,180,0,0.07);
+    border-left: 3px solid #ffb300;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: rgba(255,220,100,0.8);
+  }
+  .file-tree {
+    background: #060a14;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px 24px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #7eb3ff;
+    line-height: 2;
+  }
+  .file-tree .dir { color: #4f8ef7; }
+  .file-tree .important { color: #ff8800; font-weight: bold; }
+  hr { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 36px 0; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: rgba(76,175,80,0.15); border: 1px solid rgba(76,175,80,0.3); color: #81c784; }
+  .badge-blue  { background: rgba(79,142,247,0.15); border: 1px solid rgba(79,142,247,0.3); color: #7eb3ff; }
+</style>
+</head>
+<body>
+
+<h1>📺 Mon Launcher TV — Guide complet</h1>
+<div class="subtitle">Comment compiler et installer l'APK sur ta Android TV</div>
+
+<hr>
+
+<h2><span class="num">1</span> Télécharger Android Studio</h2>
+<p>C'est l'outil gratuit de Google pour créer des apps Android. C'est le seul logiciel dont tu as besoin.</p>
+<div class="box">
+  <li>Va sur : <code>https://developer.android.com/studio</code></li>
+  <li>Clique sur <strong>"Download Android Studio"</strong></li>
+  <li>Installe-le normalement (suivre les étapes par défaut)</li>
+</div>
+<div class="tip">💡 Android Studio pèse environ 1 Go — prends le temps qu'il faut</div>
+
+<hr>
+
+<h2><span class="num">2</span> Créer le projet</h2>
+<p>Ouvre Android Studio, puis :</p>
+<div class="box">
+  <li>Clique sur <strong>"New Project"</strong></li>
+  <li>Choisis <strong>"Empty Views Activity"</strong></li>
+  <li>Nom du projet : <code>TVBrowser</code></li>
+  <li>Package name : <code>com.monlauncher.tvbrowser</code></li>
+  <li>Language : <strong>Java</strong></li>
+  <li>Minimum SDK : <strong>API 21 (Android 5.0)</strong></li>
+  <li>Clique <strong>Finish</strong></li>
+</div>
+
+<hr>
+
+<h2><span class="num">3</span> Copier les fichiers du projet</h2>
+<p>Remplace les fichiers existants par les fichiers fournis. Voici la structure :</p>
+<div class="file-tree">
+<span class="dir">TVBrowser/</span><br>
+├── <span class="dir">app/src/main/</span><br>
+│   ├── <span class="important">AndroidManifest.xml</span>  ← remplacer<br>
+│   ├── <span class="dir">java/com/monlauncher/tvbrowser/</span><br>
+│   │   └── <span class="important">MainActivity.java</span>  ← remplacer<br>
+│   ├── <span class="dir">res/layout/</span><br>
+│   │   └── <span class="important">activity_main.xml</span>  ← remplacer<br>
+│   ├── <span class="dir">res/values/</span><br>
+│   │   └── <span class="important">styles.xml</span>  ← remplacer<br>
+│   └── <span class="dir">assets/</span>  ← créer ce dossier<br>
+│       └── <span class="important">index.html</span>  ← ajouter<br>
+├── <span class="important">build.gradle</span>  ← remplacer<br>
+└── <span class="important">settings.gradle</span>  ← remplacer
+</div>
+<div class="warn">⚠️ Pour créer le dossier <strong>assets</strong> : clic droit sur <code>main/</code> → New → Directory → tape <code>assets</code></div>
+
+<hr>
+
+<h2><span class="num">4</span> Compiler l'APK</h2>
+<div class="box">
+  <li>Dans Android Studio, menu <strong>Build → Build Bundle(s) / APK(s) → Build APK(s)</strong></li>
+  <li>Attends la fin de la compilation (2-5 minutes)</li>
+  <li>Clique sur <strong>"locate"</strong> dans la notification en bas</li>
+  <li>L'APK se trouve dans : <code>app/build/outputs/apk/debug/app-debug.apk</code></li>
+</div>
+<div class="tip">💡 L'APK pèse environ 3-5 Mo — très léger !</div>
+
+<hr>
+
+<h2><span class="num">5</span> Installer l'APK sur la TV</h2>
+<p>Il y a deux méthodes :</p>
+
+<p><span class="badge badge-blue">Méthode A — Clé USB</span></p>
+<div class="box">
+  <li>Copie l'APK sur une clé USB</li>
+  <li>Branche la clé sur la TV</li>
+  <li>Ouvre le gestionnaire de fichiers de la TV</li>
+  <li>Navigue jusqu'à l'APK et clique dessus pour installer</li>
+</div>
+
+<p><span class="badge badge-green">Méthode B — ADB Wi-Fi (plus rapide)</span></p>
+<div class="box">
+  <li>Sur la TV : Paramètres → À propos → clique 7 fois sur <strong>Build</strong> pour activer les options développeur</li>
+  <li>Paramètres développeur → Active <strong>"ADB sur réseau"</strong> → note l'IP (ex: 192.168.1.50)</li>
+  <li>Sur PC dans un terminal : <code>adb connect 192.168.1.50:5555</code></li>
+  <li>Puis : <code>adb install app-debug.apk</code></li>
+</div>
+
+<hr>
+
+<h2><span class="num">6</span> Utiliser le launcher</h2>
+<div class="box">
+  <li>Renomme ton fichier HTML en <code>launcher.html</code></li>
+  <li>Copie-le sur une clé USB</li>
+  <li>Branche la clé USB sur la TV</li>
+  <li>Ouvre l'app <strong>"Mon Launcher TV"</strong></li>
+  <li>L'app trouve automatiquement le fichier et l'affiche ✅</li>
+</div>
+<div class="tip">💡 Si l'app ne trouve pas le fichier, elle affiche une page d'aide avec les instructions</div>
+
+<hr>
+<p style="text-align:center; color:rgba(255,255,255,0.2); font-size:12px; padding-top:20px;">Mon Launcher TV — Guide généré automatiquement</p>
+</body>
+</html>
